@@ -1,1 +1,0 @@
-export {SmartumHelper} from './SmartumHelper';

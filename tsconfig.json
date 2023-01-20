@@ -1,50 +1,26 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "dist",
-    "paths": {
-      "@scss/*": [
-        "scss/*"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@pages/*": [
-        "components/pages/*"
-      ],
-      "@pages": [
-        "components/pages"
-      ],
-      "@lib/*": [
-        "lib/*"
-      ],
-      "@modules/*": [
-        "components/modules/*"
-      ],
-      "@reducers/*": [
-        "store/reducers/*"
-      ],
-      "@config": [
-        "config"
-      ]
-    },
-    "allowJs": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "moduleResolution": "node",
-    "module": "esnext",
     "target": "es5",
-    "jsx": "react",
-    "strictNullChecks": false,
-    "declaration": false,
-    "strict": true,
-    "allowSyntheticDefaultImports":true,
     "lib": [
-      "es2019",
-      "dom"
-    ]
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "src"
   ]
 }
