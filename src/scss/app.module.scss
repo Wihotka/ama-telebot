@@ -1,6 +1,23 @@
 .app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
   color: #FFFFFF;
   background: linear-gradient(126.68deg, #1496DE 28.65%, #E241CC 108.53%);
+
+  & > p {
+    font-family: sans-serif;
+    font-weight: 700;
+  }
+
+  & > img {
+    display: block;
+    width: 256px;
+    height: auto;
+    margin-top: 16px;
+    border-radius: 16px;
+  }
 }

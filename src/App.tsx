@@ -5,7 +5,7 @@ function App() {
   return (
     <div className={styles.app}>
       <p>Учись, а то будешь как они:</p>
-      <img src="https://vk.com/id297037799?z=photo297037799_457247052%2Fphotos297037799" alt="freaks"/>
+      <img src="img/freaks.jpeg" alt="freaks"/>
     </div>
   );
 }
