@@ -4,8 +4,7 @@ import styles from './scss/app.module.scss';
 function App() {
   return (
     <div className={styles.app}>
-      <p>Учись, а то будешь как они:</p>
-      <img src="img/freaks.jpeg" alt="freaks"/>
+      <img src="img/klesh.png" alt="freaks"/>
     </div>
   );
 }
