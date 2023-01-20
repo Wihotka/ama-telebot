@@ -1,10 +1,10 @@
 .app {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 24px;
   color: #FFFFFF;
   background: linear-gradient(126.68deg, #1496DE 28.65%, #E241CC 108.53%);
 
