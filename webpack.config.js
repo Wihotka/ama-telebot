@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-const SentryWebpackPlugin = require("@sentry/webpack-plugin");
+// const SentryWebpackPlugin = require("@sentry/webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ReactRefreshTypeScript = require('react-refresh-typescript');
@@ -85,17 +85,17 @@ const createPlugins = (isProd) => {
 
     if (isProd)
         def.push(
-            new SentryWebpackPlugin({
-                // sentry-cli configuration
-                authToken: '569d8c41302a4cfa9938293afac80f5d183e57f5e0ee4fd29c9d52071a809fbd', // цей токен прив"язаний до користувача, не до проекту!
-                org: "ruslanmk",
-                project: "student-interface",
-                release: process.env.npm_package_version,
+            // new SentryWebpackPlugin({
+            //     // sentry-cli configuration
+            //     authToken: '569d8c41302a4cfa9938293afac80f5d183e57f5e0ee4fd29c9d52071a809fbd', // цей токен прив"язаний до користувача, не до проекту!
+            //     org: "pavelfinagin",
+            //     project: "telebot",
+            //     release: process.env.npm_package_version,
 
-                // webpack specific configuration
-                include: ".",
-                ignore: ["node_modules", "webpack.config.js"],
-            }),
+            //     // webpack specific configuration
+            //     include: ".",
+            //     ignore: ["node_modules", "webpack.config.js"],
+            // }),
 
             new CopyPlugin({
                 patterns: [
