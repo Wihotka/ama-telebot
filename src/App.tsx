@@ -3,7 +3,7 @@ import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className={styles.app}>Hello world!</div>
+    <div className={styles.app}>Эй Пидор!</div>
   );
 }
 
