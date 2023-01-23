@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 import styles from './styles.module.scss';
 
 type P = {
@@ -8,8 +8,8 @@ type P = {
 }
 
 export const BotDropdown = ({}:P) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const [dropdownValue, setDropdownValue] = useState<string>('');
+  // const [isActive, setIsActive] = useState<boolean>(false);
+  // const [dropdownValue, setDropdownValue] = useState<string>('');
 
   return <div className={styles.dropdown}></div>
 }
