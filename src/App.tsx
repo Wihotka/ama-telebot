@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import {useTelegram} from './hooks';
-import {BotDropdown} from 'component/elements';
+import {BotDropdown} from 'components/elements';
+import {BotCourse} from 'components/modules';
+import {
+  ages,
+  grades,
+  courses
+} from './config';
 import styles from './scss/app.module.scss';
 
 function App() {
@@ -8,6 +14,9 @@ function App() {
 
   const [age, setAge] = useState<string>('');
   const [grade, setGrade] = useState<string>('');
+
+  const juniorGradeCourses = courses.filter(course => course.grade !== 'senior');
+  const seniorGradeCourses = courses.filter(courses => courses.grade !== 'junior');
 
   return (
     <div className={styles.app}>
@@ -30,11 +39,14 @@ function App() {
           />
         </div>
       </div>
+      {age && grade && <div className={styles.courses}>
+        {+grade < 5
+          ? juniorGradeCourses.map(course => <BotCourse key={course.id} course={course.label}/>)
+          : seniorGradeCourses.map(course => <BotCourse key={course.id} course={course.label}/>)
+        }
+      </div>}
     </div>
   );
 }
-
-const ages = ['4', '5', '6', '7', '8', '9', '10', '11', '12+'];
-const grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
 
 export default App;

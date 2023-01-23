@@ -10,17 +10,17 @@
     width: 100%;
     height: 40px;
     padding: 0 8px 0 16px;
-    border: 1px solid rgba(227, 227, 227, 0.8);
+    border: 1px solid #E241CC;
     border-radius: 32px;
     color: #0B1F35;
-    background-color: #fff;
+    background-color: #FFFFFF;
     font-size: 20px;
     transition: .2s ease;
     cursor: pointer;
 
     @media (hover: hover) {
       &:hover > svg > path {
-        stroke: #2761B8;
+        stroke: #E241CC;
       }
     }
 
@@ -44,9 +44,9 @@
     z-index: 1;
     width: 100%;
     margin-top: 8px;
-    border: 1px solid rgba(227, 227, 227, 0.7);
+    border: 1px solid #E241CC;
     border-radius: 16px;
-    background-color: #fff;
+    background-color: #FFFFFF;
     transition: .2s ease;
     transform-origin: top;
     transform: scaleY(0);
@@ -73,7 +73,7 @@
         width: 8px;
         height: 8px;
         border-radius: 100%;
-        background-color: #2761B8;
+        background-color: #E241CC;
       }
 
       &:first-child {
@@ -85,7 +85,7 @@
 
       @media (hover:hover) {
         &:hover {
-          color: #2761B8;
+          color: #E241CC;
         }
       }
     }

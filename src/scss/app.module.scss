@@ -19,6 +19,7 @@
     display: grid;
     grid-template-columns: repeat(2, 120px);
     gap: 8px;
+    margin-bottom: 16px;
 
     .dropdownWrap {
       display: flex;
@@ -26,5 +27,11 @@
       align-items: center;
       gap: 4px;
     }
+  }
+
+  .courses {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
   }
 }
