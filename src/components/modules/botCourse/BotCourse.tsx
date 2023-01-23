@@ -13,6 +13,11 @@ export const BotCourse = ({label, action, setAction}:P) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
 
+  const handleClose = () => {
+    setIsOpened(false);
+    setIsFormOpened(false);
+  }
+
   const handleTrial = () => {
     setAction(courseActions.trial);
     setIsFormOpened(true);
@@ -27,7 +32,7 @@ export const BotCourse = ({label, action, setAction}:P) => {
     <button onClick={() => setIsOpened(true)} className={styles.course}>
       {label}
     </button>
-    {isOpened && <BotModal opened={isOpened} className={styles.modal} onClose={() => setIsOpened(false)}>
+    {isOpened && <BotModal opened={isOpened} className={styles.modal} onClose={handleClose}>
       {!isFormOpened
         ? <>
           <h3 className={styles.title}>{label}</h3>
