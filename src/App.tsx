@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useTelegram} from './hooks';
 import {BotDropdown} from 'component/elements';
 import styles from './scss/app.module.scss';
 
 function App() {
   const {tg, user} = useTelegram();
+
+  const [age, setAge] = useState<string>('');
+  const [grade, setGrade] = useState<string>('');
 
   return (
     <div className={styles.app}>
@@ -15,7 +18,7 @@ function App() {
           <BotDropdown
             defaultValue={'age'}
             options={ages}
-            onChange={() => console.log('DICK')}
+            onChange={(option:string) => setAge(option)}
           />
         </div>
         <div className={styles.dropdownWrap}>
@@ -23,7 +26,7 @@ function App() {
           <BotDropdown
             defaultValue={'grade'}
             options={grades}
-            onChange={() => console.log('DICK')}
+            onChange={(option:string) => setGrade(option)}
           />
         </div>
       </div>

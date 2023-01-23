@@ -18,8 +18,10 @@
     transition: .2s ease;
     cursor: pointer;
 
-    &:hover > svg > path {
-      stroke: #2761B8;
+    @media (hover: hover) {
+      &:hover > svg > path {
+        stroke: #2761B8;
+      }
     }
 
     .dropdownArrow {
@@ -81,8 +83,10 @@
         padding-bottom: 8px;
       }
 
-      &:hover {
-        color: #2761B8;
+      @media (hover:hover) {
+        &:hover {
+          color: #2761B8;
+        }
       }
     }
   }

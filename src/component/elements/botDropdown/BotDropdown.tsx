@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import classNames from 'classnames';
 import {upperFirst} from 'lodash';
 import styles from './styles.module.scss';
@@ -13,6 +13,24 @@ export const BotDropdown = ({defaultValue, options, onChange}:P) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [dropdownValue, setDropdownValue] = useState<string>(defaultValue);
 
+  const ref = useRef<any>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e:MouseEvent):any => {
+      if (ref.current) {
+        if (!ref.current.contains(e.target)) {
+          setIsActive(false);
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, []);
+
   const handleDropdownClick = () => {
     setIsActive(prev => !prev);
   };
@@ -23,7 +41,7 @@ export const BotDropdown = ({defaultValue, options, onChange}:P) => {
     setIsActive(false);
   };
 
-  return <div className={styles.dropdown} onBlur={() => setIsActive(false)}>
+  return <div ref={ref} className={styles.dropdown} onBlur={() => setIsActive(false)}>
     <div className={classNames(styles.dropdownBtn, isActive && styles.active)} onClick={handleDropdownClick}>
         <span>{upperFirst(dropdownValue)}</span>
         <svg
