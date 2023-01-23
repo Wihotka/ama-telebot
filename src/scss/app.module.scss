@@ -7,8 +7,24 @@
   padding-top: 24px;
   color: #FFFFFF;
   background: linear-gradient(126.68deg, #1496DE 28.65%, #E241CC 108.53%);
+  font-family: sans-serif;
+
+  .greeting {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 24px;
+  }
 
   .dropdowns {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 8px;
+
+    .dropdownWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
   }
 }
