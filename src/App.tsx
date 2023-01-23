@@ -10,11 +10,10 @@ import {
 import styles from './scss/app.module.scss';
 
 function App() {
-  const {tg, user} = useTelegram();
+  const {user} = useTelegram();
 
   const [age, setAge] = useState<string>('');
   const [grade, setGrade] = useState<string>('');
-  const [action, setAction] = useState<string>('');
 
   const juniorGradeCourses = courses.filter(course => course.grade !== 'senior');
   const seniorGradeCourses = courses.filter(courses => courses.grade !== 'junior');
@@ -45,14 +44,10 @@ function App() {
           ? juniorGradeCourses.map(course => <BotCourse
               key={course.id}
               label={course.label}
-              action={action}
-              setAction={setAction}
             />)
           : seniorGradeCourses.map(course => <BotCourse
               key={course.id}
               label={course.label}
-              action={action}
-              setAction={setAction}
             />)
         }
       </div>}

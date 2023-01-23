@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
-import {BotModal} from '../../elements/botModal'
+import {BotModal, BotForm} from '../../elements'
 import {courseActions} from 'config';
 import styles from './styles.module.scss';
 
 type P = {
   label:string;
-  action:string;
-  setAction:React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const BotCourse = ({label, action, setAction}:P) => {
+export const BotCourse = ({label}:P) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
+  const [formAction, setFormAction] = useState<string>('');
 
   const handleClose = () => {
     setIsOpened(false);
@@ -19,12 +18,12 @@ export const BotCourse = ({label, action, setAction}:P) => {
   }
 
   const handleTrial = () => {
-    setAction(courseActions.trial);
+    setFormAction(courseActions.trial);
     setIsFormOpened(true);
   }
 
   const handleDetails = () => {
-    setAction(courseActions.details);
+    setFormAction(courseActions.details);
     setIsFormOpened(true);
   }
 
@@ -43,7 +42,9 @@ export const BotCourse = ({label, action, setAction}:P) => {
           </div>
         </>
         : <>
-          <h3 className={styles.title}>{action}</h3>
+          <h3 className={styles.title}>{label}</h3>
+          <p className={styles.description}>{formAction}</p>
+          <BotForm/>
           <p>Здесь будет ахуительно красивая форма обратной связи</p>
         </>
       }
