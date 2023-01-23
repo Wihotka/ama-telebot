@@ -4,11 +4,13 @@ import {BotDropdown} from 'component/elements';
 import styles from './scss/app.module.scss';
 
 function App() {
-  // const {tg, user} = useTelegram();
+  const {tg, user} = useTelegram();
+
+  console.log(user);
 
   return (
     <div className={styles.app}>
-      <h2>Hello</h2>
+      <h2>Hello {user}</h2>
       <div className={styles.dropdowns}>
         <BotDropdown
           defaultValue={'DICK'}
