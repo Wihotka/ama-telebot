@@ -8,6 +8,8 @@ function App() {
 
   console.log(tg);
 
+  console.log(user);
+
   return (
     <div className={styles.app}>
       {/* <h2>{tg}</h2> */}
