@@ -14,6 +14,7 @@ function App() {
 
   const [age, setAge] = useState<string>('');
   const [grade, setGrade] = useState<string>('');
+  const [action, setAction] = useState<string>('');
 
   const juniorGradeCourses = courses.filter(course => course.grade !== 'senior');
   const seniorGradeCourses = courses.filter(courses => courses.grade !== 'junior');
@@ -41,8 +42,18 @@ function App() {
       </div>
       {age && grade && <div className={styles.courses}>
         {+grade < 5
-          ? juniorGradeCourses.map(course => <BotCourse key={course.id} label={course.label}/>)
-          : seniorGradeCourses.map(course => <BotCourse key={course.id} label={course.label}/>)
+          ? juniorGradeCourses.map(course => <BotCourse
+              key={course.id}
+              label={course.label}
+              action={action}
+              setAction={setAction}
+            />)
+          : seniorGradeCourses.map(course => <BotCourse
+              key={course.id}
+              label={course.label}
+              action={action}
+              setAction={setAction}
+            />)
         }
       </div>}
     </div>

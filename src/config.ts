@@ -1,5 +1,9 @@
 export type GradeT = 'all'|'junior'|'senior';
 export type AgeT = 'all'|'junior'|'middle'|'senior';
+export type CourseActionsT = {
+  trial:string;
+  details:string;
+}
 export type CourseT = {
   id:number;
   label:string;
@@ -9,6 +13,10 @@ export type CourseT = {
 
 export const ages:string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12+'];
 export const grades:string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+export const courseActions:CourseActionsT = {
+  trial: 'Записатися на безкоштовне пробне заняття',
+  details: 'Дізнатися деталі'
+}
 export const courses:CourseT[] = [
   {
     id: 1,
