@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useTelegram} from './hooks';
 import {BotDropdown} from 'components/elements';
 import {BotCourse} from 'components/modules';
@@ -41,8 +41,8 @@ function App() {
       </div>
       {age && grade && <div className={styles.courses}>
         {+grade < 5
-          ? juniorGradeCourses.map(course => <BotCourse key={course.id} course={course.label}/>)
-          : seniorGradeCourses.map(course => <BotCourse key={course.id} course={course.label}/>)
+          ? juniorGradeCourses.map(course => <BotCourse key={course.id} label={course.label}/>)
+          : seniorGradeCourses.map(course => <BotCourse key={course.id} label={course.label}/>)
         }
       </div>}
     </div>

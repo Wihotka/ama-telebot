@@ -1,0 +1,31 @@
+.modalWrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  background: #0b1f359a;
+
+  .modalBody {
+    position: relative;
+    height: fit-content;
+    padding: 28px 16px 16px;
+    border: 2px solid #E241CC;
+    border-radius: 16px;
+    color: #0B1F35;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px 0px #0b1f35b0;
+
+    .modalClose {
+      position: absolute;
+      top: 2px;
+      right: 8px;
+      color: #E241CC;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+}
