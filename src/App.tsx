@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      {/* <h2>{tg}</h2> */}
+      <h2>{user}</h2>
       <div className={styles.dropdowns}>
         <BotDropdown
           defaultValue={'DICK'}
