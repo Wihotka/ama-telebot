@@ -3,6 +3,12 @@ import React from 'react';
 import {BotDropdown} from 'component/elements';
 import styles from './scss/app.module.scss';
 
+declare global {
+  interface Window {Telegram: {
+    WebApp:any;
+  }}
+}
+
 const tg = window.Telegram.WebApp;
 
 function App() {
