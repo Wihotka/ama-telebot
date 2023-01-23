@@ -5,18 +5,6 @@
     "paths": {
       "@components/*": [
         "components/*"
-      ],
-      "@pages/*": [
-        "components/pages/*"
-      ],
-      "@modules/*": [
-        "components/modules/*"
-      ],
-      "@elements/*": [
-        "components/elements/*"
-      ],
-      "@hooks/*": [
-        "hooks/*"
       ]
     },
     "target": "es5",
