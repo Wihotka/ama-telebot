@@ -1,22 +1,16 @@
 import React from 'react';
-// import {useTelegram} from './hooks';
+import {useTelegram} from './hooks';
 import {BotDropdown} from 'component/elements';
 import styles from './scss/app.module.scss';
 
-declare global {
-  interface Window {Telegram: {
-    WebApp:any;
-  }}
-}
-
-const tg = window.Telegram.WebApp;
-
 function App() {
-  // const {tg, user} = useTelegram();
+  const {tg, user} = useTelegram();
+
+  console.log(tg);
 
   return (
     <div className={styles.app}>
-      <h2>{tg}</h2>
+      {/* <h2>{tg}</h2> */}
       <div className={styles.dropdowns}>
         <BotDropdown
           defaultValue={'DICK'}
