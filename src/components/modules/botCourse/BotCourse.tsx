@@ -50,24 +50,15 @@ export const BotCourse = ({label, age, grade}:P) => {
           </div>
         </>
         : <>
-          {!isDataSent
-            ? <>
-              <h3 className={styles.title}>{label}</h3>
-              <p className={styles.description}>{formAction}</p>
-              <BotForm
-                age={age}
-                grade={grade}
-                subject={label}
-                action={formAction}
-                changeSentStatus={setIsDataSent}
-              />
-            </>
-            : <>
-              <h3 className={styles.title}>Дякуємо за звернення 😊</h3>
-              <h3 className={styles.title}>Найближчим часом з Вами зв’яжеться менеджер та проконсультує!</h3>
-              <h3 className={styles.title}>Гарного дня 🌞</h3>
-            </>
-          }
+          <h3 className={styles.title}>{label}</h3>
+          <p className={styles.description}>{formAction}</p>
+          <BotForm
+            age={age}
+            grade={grade}
+            subject={label}
+            action={formAction}
+            changeSentStatus={setIsDataSent}
+          />
         </>
       }
     </BotModal>}

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {useFormik} from 'formik';
 import classNames from 'classnames';
 import {upperFirst} from 'lodash';
@@ -16,6 +16,7 @@ type P = {
 
 export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
   const {tg} = useTelegram();
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -43,22 +44,25 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
       tg.MainButton.show();
       return {};
     },
-    onSubmit: values => {
-      const resultsData = {
-        name: values.name,
-        surname: values.surname,
-        age: age,
-        grade: grade,
-        subject: subject,
-        tel: values.tel,
-        action: action
-      };
-
-      console.log(resultsData); // TEST
-
+    onSubmit: () => {
       changeSentStatus(true);
     },
   });
+
+  const onSendData = useCallback(() => {
+    const data = {
+      name: formik.values.name,
+      surname: formik.values.surname,
+      age: age,
+      grade: grade,
+      subject: subject,
+      tel: formik.values.tel,
+      action: action
+    };
+
+    tg.sendData(JSON.stringify(data));
+    changeSentStatus(true);
+  }, [formik.values.name, formik.values.surname, formik.values.tel, age, grade, subject, action, tg, changeSentStatus]);
 
   const handleName = (e:{target:{value:any}}) => {
     formik.touched.name = true;
@@ -90,6 +94,14 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
     formik.touched.surname = false;
     formik.touched.tel = false;
   }, []);
+
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData);
+
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData);
+    }
+  }, [onSendData])
 
   return <form onSubmit={formik.handleSubmit} className={styles.form}>
     <BotInput
