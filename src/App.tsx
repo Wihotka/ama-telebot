@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import {useTelegram} from './hooks';
 import {BotDropdown} from 'components/elements';
 import {BotCourse} from 'components/modules';
 import {
@@ -10,8 +9,6 @@ import {
 import styles from './scss/app.module.scss';
 
 function App() {
-  const {user} = useTelegram();
-
   const [age, setAge] = useState<string>('');
   const [grade, setGrade] = useState<string>('');
 
@@ -20,7 +17,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <h2 className={styles.greeting}>Hello {user}!</h2>
+      <h2 className={styles.greeting}>Hello!</h2>
       <div className={styles.dropdowns}>
         <div className={styles.dropdownWrap}>
           <span>Your age:</span>
