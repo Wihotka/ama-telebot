@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useFormik} from 'formik';
 import classNames from 'classnames';
 import {upperFirst} from 'lodash';
+import {useTelegram} from 'hooks';
 import {BotInput} from '../botInput';
 import styles from './styles.module.scss';
 
-export const BotForm = () => {
+type P = {
+  age:string,
+  grade:string,
+  subject:string,
+  action:string;
+  changeSentStatus:Function;
+}
+
+export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
+  const {tg} = useTelegram();
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -25,17 +35,28 @@ export const BotForm = () => {
       else if (values.tel.length < 5) errors.tel = 'Too short phone number';
       else if (!values.tel.match(/\d/i)) errors.tel = 'Incorrect phone number';
 
-      if (errors.name || errors.surname || errors.tel)
+      if (errors.name || errors.surname || errors.tel) {
+        tg.MainButton.hide();
         return errors;
-            
+      }
+         
+      tg.MainButton.show();
       return {};
     },
     onSubmit: values => {
       const resultsData = {
-        user: values
+        name: values.name,
+        surname: values.surname,
+        age: age,
+        grade: grade,
+        subject: subject,
+        tel: values.tel,
+        action: action
       };
 
       console.log(resultsData); // TEST
+
+      changeSentStatus(true);
     },
   });
 
@@ -53,7 +74,13 @@ export const BotForm = () => {
     const value = e.target.value;
     e.target.value = value.replace(/[^\d+\-() ]/g, '').replace(/\s\s+/g, ' ').substr(0, 20).trimStart();
     formik.handleChange(e);
-};
+  };
+
+  useEffect(() => {
+    tg.MainButton.setParams({
+      text: 'Send data'
+    });
+  }, []);
 
   return <form onSubmit={formik.handleSubmit} className={styles.form}>
     <BotInput
@@ -89,6 +116,6 @@ export const BotForm = () => {
     {formik.touched.tel && formik.errors.tel
       ? <div className={styles.error}>{formik.errors.tel}</div>
       : null}
-    <button type='submit' className={styles.submitBtn}>Send data</button>
+    {/* <button type='submit' className={styles.submitBtn}>Send data</button> */}
   </form>
 }

@@ -5,16 +5,20 @@ import styles from './styles.module.scss';
 
 type P = {
   label:string;
+  age:string;
+  grade:string;
 }
 
-export const BotCourse = ({label}:P) => {
+export const BotCourse = ({label, age, grade}:P) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
   const [formAction, setFormAction] = useState<string>('');
+  const [isDataSent, setIsDataSent] = useState<boolean>(false);
 
   const handleClose = () => {
     setIsOpened(false);
     setIsFormOpened(false);
+    setIsDataSent(false);
   }
 
   const handleTrial = () => {
@@ -42,9 +46,24 @@ export const BotCourse = ({label}:P) => {
           </div>
         </>
         : <>
-          <h3 className={styles.title}>{label}</h3>
-          <p className={styles.description}>{formAction}</p>
-          <BotForm/>
+          {!isDataSent
+            ? <>
+              <h3 className={styles.title}>{label}</h3>
+              <p className={styles.description}>{formAction}</p>
+              <BotForm
+                age={age}
+                grade={grade}
+                subject={label}
+                action={formAction}
+                changeSentStatus={setIsDataSent}
+              />
+            </>
+            : <>
+              <h3 className={styles.title}>Дякуємо за звернення 😊</h3>
+              <h3 className={styles.title}>Найближчим часом з Вами зв’яжеться менеджер та проконсультує!</h3>
+              <h3 className={styles.title}>Гарного дня 🌞</h3>
+            </>
+          }
         </>
       }
     </BotModal>}

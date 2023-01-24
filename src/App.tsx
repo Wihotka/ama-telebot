@@ -44,10 +44,14 @@ function App() {
           ? juniorGradeCourses.map(course => <BotCourse
               key={course.id}
               label={course.label}
+              age={age}
+              grade={grade}
             />)
           : seniorGradeCourses.map(course => <BotCourse
               key={course.id}
               label={course.label}
+              age={age}
+              grade={grade}
             />)
         }
       </div>}
