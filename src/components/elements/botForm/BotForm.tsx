@@ -11,10 +11,9 @@ type P = {
   grade:string,
   subject:string,
   action:string;
-  changeSentStatus:Function;
 }
 
-export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
+export const BotForm = ({age, grade, subject, action}:P) => {
   const {tg} = useTelegram();
 
   const formik = useFormik({
@@ -45,7 +44,7 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
       return {};
     },
     onSubmit: () => {
-      changeSentStatus(true);
+      console.log('OK');
     },
   });
 
@@ -61,8 +60,7 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
     };
 
     tg.sendData(JSON.stringify(data));
-    changeSentStatus(true);
-  }, [formik.values.name, formik.values.surname, formik.values.tel, age, grade, subject, action, tg, changeSentStatus]);
+  }, [formik.values.name, formik.values.surname, formik.values.tel, age, grade, subject, action, tg]);
 
   const handleName = (e:{target:{value:any}}) => {
     formik.touched.name = true;
@@ -128,6 +126,5 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
       onChange={handleTel}
       className={classNames(formik.touched.tel && formik.errors.tel && styles.inputError)}
     />
-    {/* <button type='submit' className={styles.submitBtn}>Send data</button> */}
   </form>
 }

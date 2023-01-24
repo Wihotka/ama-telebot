@@ -14,14 +14,12 @@ export const BotCourse = ({label, age, grade}:P) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [isFormOpened, setIsFormOpened] = useState<boolean>(false);
   const [formAction, setFormAction] = useState<string>('');
-  const [isDataSent, setIsDataSent] = useState<boolean>(false);
 
   const {tg} = useTelegram();
 
   const handleClose = () => {
     setIsOpened(false);
     setIsFormOpened(false);
-    setIsDataSent(false);
     tg.MainButton.hide();
   }
 
@@ -57,7 +55,6 @@ export const BotCourse = ({label, age, grade}:P) => {
             grade={grade}
             subject={label}
             action={formAction}
-            changeSentStatus={setIsDataSent}
           />
         </>
       }
