@@ -81,7 +81,8 @@ export const BotForm = ({changeSentStatus, age, grade, subject, action}:P) => {
 
   useEffect(() => {
     tg.MainButton.setParams({
-      text: 'Send data'
+      text: 'Send data',
+      color: '#E241CC'
     });
     tg.MainButton.hide();
 

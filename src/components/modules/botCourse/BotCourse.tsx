@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useTelegram} from 'hooks';
 import {BotModal, BotForm} from '../../elements'
 import {courseActions} from 'config';
 import styles from './styles.module.scss';
@@ -15,10 +16,13 @@ export const BotCourse = ({label, age, grade}:P) => {
   const [formAction, setFormAction] = useState<string>('');
   const [isDataSent, setIsDataSent] = useState<boolean>(false);
 
+  const {tg} = useTelegram();
+
   const handleClose = () => {
     setIsOpened(false);
     setIsFormOpened(false);
     setIsDataSent(false);
+    tg.MainButton.hide();
   }
 
   const handleTrial = () => {
