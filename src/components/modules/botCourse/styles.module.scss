@@ -51,6 +51,20 @@
       background: #E241CC;
       box-shadow: 0px 4px 8px 0px #0b1f35b0;
       font-weight: 700;
+      transition: .2s ease;
+
+      &:active {
+        transform: scale(0.96);
+      }
+  
+      @media (hover: hover) {
+        &:hover {
+          background: #e241ccc0;
+        }
+        &:active {
+          transform: scale(0.96);
+        }
+      }
     }
   }
 }

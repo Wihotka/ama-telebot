@@ -45,7 +45,6 @@ export const BotCourse = ({label}:P) => {
           <h3 className={styles.title}>{label}</h3>
           <p className={styles.description}>{formAction}</p>
           <BotForm/>
-          <p>Здесь будет ахуительно красивая форма обратной связи</p>
         </>
       }
     </BotModal>}
